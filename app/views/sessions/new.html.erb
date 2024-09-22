@@ -1,0 +1,85 @@
+<div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8 bg-gray-200" style="background-color: #E0E0E0; margin-top: -51px;">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-2xl font-medium text-center text-gray-900 leading-9 text-red-500">
+      Tailwebs
+    </h2>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+<%= form_with url: login_path, local: true do |form| %>
+        <!-- Email Input -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
+            Email address
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fas fa-user text-gray-400"></i> <!-- User icon -->
+            </div>
+            <input id="email" name="username" type="email" required="" autofocus="" class="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+          </div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="mt-6">
+          <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+            Password
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fas fa-lock text-gray-400"></i> <!-- Lock icon -->
+            </div>
+            <input id="password" type="password" name="password" required="" class="appearance-none block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            
+            <!-- Show/Hide Button -->
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+              <button type="button" onclick="togglePasswordVisibility()" class="text-gray-500 focus:outline-none">
+                <i id="toggle-password-icon" class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Forgot Password Link -->
+        <div class="flex items-center justify-end mt-6">
+          <div class="text-sm leading-5">
+            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+              Forgot your password?
+            </a>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-6">
+          <span class="block w-full rounded-md shadow-sm">
+            <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+              Sign in
+            </button>
+          </span>
+        </div>
+     <%end%>
+    </div>
+  </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script type="text/javascript">
+	function togglePasswordVisibility() {
+  const passwordInput = document.getElementById('password');
+  const toggleIcon = document.getElementById('toggle-password-icon');
+
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleIcon.classList.remove('fa-eye');
+    toggleIcon.classList.add('fa-eye-slash');
+  } else {
+    passwordInput.type = 'password';
+    toggleIcon.classList.remove('fa-eye-slash');
+    toggleIcon.classList.add('fa-eye');
+  }
+}
+
+</script>
